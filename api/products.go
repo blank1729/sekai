@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-func products(w http.ResponseWriter, r *http.Request) {
+func ProductsHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodGet {
 		item, _ := os.Open("data/item.json")
 		data, _ := io.ReadAll(item)
