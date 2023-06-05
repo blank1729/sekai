@@ -9,7 +9,7 @@ import (
 
 func SearchHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodGet {
-		item, err := os.Open("api/data/items.json")
+		item, err := os.Open("./data/items.json")
 		if err != nil {
 			fmt.Fprintln(w, err)
 		}
