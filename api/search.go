@@ -2,9 +2,19 @@ package handler
 
 import (
 	"fmt"
+	"io"
 	"net/http"
+	"os"
 )
 
 func SearchHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "hellor world", r.Header.Get("User-Agent"))
+	if r.Method == http.MethodGet {
+		item, err := os.Open("./data/item.json")
+		if err != nil {
+			fmt.Fprintln(w, err)
+		}
+		data, _ := io.ReadAll(item)
+		w.Header().Set("Content-Type", "application/json")
+		fmt.Fprintln(w, data)
+	}
 }
