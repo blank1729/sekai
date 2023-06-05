@@ -1,0 +1,17 @@
+header {
+  background-color: gray;
+  padding: 10px auto;
+  width: 100vw;
+  nav {
+    width: 80%;
+    margin: auto;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .links {
+      display: flex;
+      gap: 1rem;
+    }
+  }
+}
