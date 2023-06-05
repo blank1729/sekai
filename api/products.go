@@ -7,6 +7,12 @@ import (
 	"os"
 )
 
+var Product struct {
+	id    string
+	name  string
+	price int
+}
+
 func ProductsHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodGet {
 		item, _ := os.Open("data/item.json")
