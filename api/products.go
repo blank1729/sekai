@@ -28,7 +28,7 @@ func ProductsHandler(w http.ResponseWriter, r *http.Request) {
 			fmt.Println("unable to unmarshal", err)
 		}
 		w.Header().Set("Content-Type", "application/json")
-		jsonData, err := json.Marshal(items)
+		jsonData, err := json.MarshalIndent(items, "  ", "  ")
 		if err != nil {
 			log.Fatal(err)
 		}
