@@ -15,11 +15,11 @@ func SearchHandler(w http.ResponseWriter, r *http.Request) {
 		filePath := filepath.Join(wd, "data", "items.json")
 		item, err := os.Open(filePath)
 		if err != nil {
-			cmd := exec.Command("ls", "-l")
-			output, _ := cmd.Output()
-			fmt.Fprintln(w, err, string(output))
-
+			fmt.Fprintln(w, "can't open file")
 		}
+		cmd := exec.Command("ls", "-l")
+		output, _ := cmd.Output()
+		fmt.Fprintln(w, err, string(output))
 		data, _ := io.ReadAll(item)
 		w.Header().Set("Content-Type", "application/json")
 		fmt.Fprintln(w, data)
