@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"regexp"
 )
 
 type Item struct {
@@ -27,6 +28,13 @@ func ProductsHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func itemHandler(w http.ResponseWriter, r *http.Request, id string) {
+
+	if !valid(id) {
+		w.WriteHeader(http.StatusNotFound)
+		w.Write([]byte("id doesn't exist"))
+		return
+	}
+
 	fd, err := os.Open("data/items.json")
 	if err != nil {
 		log.Fatal("unable to open the file")
@@ -81,4 +89,9 @@ func productHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	w.Header().Set("Content-Type", "application/json")
 	w.Write(jsonData)
+}
+
+func valid(itemId string) bool {
+	validPattern := regexp.MustCompile(`^[0-9]+$`)
+	return validPattern.MatchString(itemId)
 }
