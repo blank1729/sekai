@@ -7,7 +7,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"strings"
 )
 
 type Item struct {
@@ -17,17 +16,12 @@ type Item struct {
 }
 
 func ProductsHandler(w http.ResponseWriter, r *http.Request) {
-	if r.Method == http.MethodGet {
-		url := strings.TrimPrefix(r.URL.Path, "/api/")
-		params := strings.Split(url, "/")
 
-		switch len(params) {
-		case 1:
+	if r.Method == http.MethodGet {
+		if r.URL.Query().Has("id") {
+			itemHandler(w, r, r.URL.Query().Get("id"))
+		} else {
 			productHandler(w, r)
-		case 2:
-			itemHandler(w, r, params[1])
-		default:
-			w.WriteHeader(http.StatusNotFound)
 		}
 	}
 }
