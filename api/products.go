@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"log"
 	"net/http"
 	"os"
 )
@@ -25,13 +24,14 @@ func ProductsHandler(w http.ResponseWriter, r *http.Request) {
 		var items []Item
 		err = json.Unmarshal([]byte(data), &items)
 		if err != nil {
-			fmt.Println("unable to unmarshal", err)
+			fmt.Fprintln(w, "unable to unmarshal", err)
 		}
-		w.Header().Set("Content-Type", "application/json")
 		jsonData, err := json.MarshalIndent(items, "  ", "  ")
 		if err != nil {
-			log.Fatal(err)
+			fmt.Fprintln(w, "unable to marshal", err)
 		}
+		fmt.Fprintln(w, items)
+		w.Header().Set("Content-Type", "application/json")
 		w.Write(jsonData)
 	}
 }
