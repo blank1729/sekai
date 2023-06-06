@@ -35,7 +35,7 @@ func itemHandler(w http.ResponseWriter, r *http.Request, id string) {
 		return
 	}
 
-	fd, err := os.Open("api/data/items.json")
+	fd, err := os.Open("data/items.json")
 	if err != nil {
 		log.Fatal("unable to open the file")
 	}
@@ -72,7 +72,7 @@ func itemHandler(w http.ResponseWriter, r *http.Request, id string) {
 }
 
 func productHandler(w http.ResponseWriter, r *http.Request) {
-	fd, err := os.Open("api/data/items.json")
+	fd, err := os.Open("data/items.json")
 	if err != nil {
 		log.Fatal("unable to open the file")
 	}
