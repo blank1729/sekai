@@ -1,10 +1,10 @@
 {
   "functions": {
     "api/search.go": {
-      "includeFiles": "../data/items.json"
+      "includeFiles": "data/items.json"
     },
     "api/products.go": {
-      "includeFiles": "../data/items.json"
+      "includeFiles": "data/items.json"
     }
   }
 }
