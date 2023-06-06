@@ -5,11 +5,13 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"path/filepath"
 )
 
 func SearchHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodGet {
-		item, err := os.Open("./data/items.json")
+		filePath := filepath.Join(".", "data", "items.json")
+		item, err := os.Open(filePath)
 		if err != nil {
 			fmt.Fprintln(w, err)
 		}
