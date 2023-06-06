@@ -31,11 +31,11 @@ func itemHandler(w http.ResponseWriter, r *http.Request, id string) {
 
 	if !valid(id) {
 		w.WriteHeader(http.StatusNotFound)
-		w.Write([]byte("id doesn't exist"))
+		w.Write([]byte("invalid id"))
 		return
 	}
 
-	fd, err := os.Open("data/items.json")
+	fd, err := os.Open("api/data/items.json")
 	if err != nil {
 		log.Fatal("unable to open the file")
 	}
@@ -72,7 +72,7 @@ func itemHandler(w http.ResponseWriter, r *http.Request, id string) {
 }
 
 func productHandler(w http.ResponseWriter, r *http.Request) {
-	fd, err := os.Open("data/items.json")
+	fd, err := os.Open("api/data/items.json")
 	if err != nil {
 		log.Fatal("unable to open the file")
 	}

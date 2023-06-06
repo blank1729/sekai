@@ -1,6 +1,17 @@
 /* fonts */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap");
 
-* {
+body {
   font-family: "Poppins", sans-serif;
+}
+
+.container {
+  margin: auto;
+  @media screen and (min-width: 428px) {
+    margin: auto;
+  }
+  @media screen and (min-width: 769px) {
+    width: 768px;
+    margin: auto;
+  }
 }

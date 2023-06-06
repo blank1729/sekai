@@ -129,8 +129,12 @@ table {
   border-spacing: 0;
 }
 
-a,
-a:visited {
-  font-style: none;
+a {
   text-decoration: none;
+  &:visited {
+    color: inherit;
+  }
+  &:active {
+    color: inherit;
+  }
 }

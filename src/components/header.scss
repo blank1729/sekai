@@ -1,17 +1,21 @@
 header {
-  background-color: gray;
-  padding: 10px auto;
+  background-color: tomato;
   width: 100vw;
   nav {
-    width: 80%;
-    margin: auto;
-    padding: 10px;
+    padding-top: 15px;
+    padding-bottom: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     .links {
       display: flex;
       gap: 1rem;
+      a {
+        transition: all 100ms ease-in-out;
+        &:hover {
+          transform: translateY(-3px);
+        }
+      }
     }
   }
 }

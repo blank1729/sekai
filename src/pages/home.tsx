@@ -9,8 +9,11 @@ interface Item {
 const Home = () => {
   const [items, setItems] = useState<Item[]>([]);
   const [loading, setLoading] = useState(true);
+  // const path = "/api/products";
+  const path = "http://localhost:8080/api/products";
+
   const getItems = async () => {
-    const data = await fetch("/api/products");
+    const data = await fetch(path);
     const items = await data.json();
     setItems(items);
     setLoading(false);
@@ -20,18 +23,32 @@ const Home = () => {
     getItems();
   }, []);
   if (loading) {
-    return <div>Loading</div>;
+    return (
+      <main>
+        <div className="container">Loading</div>
+      </main>
+    );
   }
   return (
-    <div>
-      {items.map((item) => (
-        <div key={item.id}>
-          <p>{item.id}</p>
-          <p>{item.name}</p>
-          <p>{item.price}</p>
+    <main>
+      <section className="container">
+        <h1>Items</h1>
+        <div
+          style={{
+            display: "flex",
+            gap: "1rem",
+          }}
+        >
+          {items.map((item) => (
+            <div key={item.id}>
+              <p>{item.id}</p>
+              <p>{item.name}</p>
+              <p>{item.price}</p>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
+      </section>
+    </main>
   );
 };
 
