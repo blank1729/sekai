@@ -16,7 +16,8 @@ func SearchHandler(w http.ResponseWriter, r *http.Request) {
 		item, err := os.Open(filePath)
 		if err != nil {
 			cmd := exec.Command("ls", "-l")
-			fmt.Fprintln(w, err, cmd)
+			output, _ := cmd.Output()
+			fmt.Fprintln(w, err, output)
 
 		}
 		data, _ := io.ReadAll(item)
