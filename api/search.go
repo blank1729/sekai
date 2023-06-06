@@ -10,7 +10,8 @@ import (
 
 func SearchHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodGet {
-		filePath := filepath.Join(".", "data", "items.json")
+		wd, _ := os.Getwd()
+		filePath := filepath.Join(wd, "data", "items.json")
 		item, err := os.Open(filePath)
 		if err != nil {
 			fmt.Fprintln(w, err)
