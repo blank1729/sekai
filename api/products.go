@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 	"os"
 )
@@ -11,7 +12,7 @@ import (
 type Item struct {
 	Id    string `json:"id"`
 	Name  string `json:"name"`
-	Price int    `json:"price"`
+	Price string `json:"price"`
 }
 
 func ProductsHandler(w http.ResponseWriter, r *http.Request) {
@@ -22,10 +23,15 @@ func ProductsHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		data, _ := io.ReadAll(fd)
 		var items []Item
-		json.Unmarshal([]byte(data), &items)
-
+		err = json.Unmarshal([]byte(data), &items)
+		if err != nil {
+			fmt.Println("unable to unmarshal", err)
+		}
 		w.Header().Set("Content-Type", "application/json")
-		// fmt.Fprintln(w, data)
-		json.NewEncoder(w).Encode(items)
+		jsonData, err := json.Marshal(items)
+		if err != nil {
+			log.Fatal(err)
+		}
+		w.Write(jsonData)
 	}
 }
