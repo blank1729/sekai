@@ -25,7 +25,7 @@ const Home = () => {
   return (
     <div>
       {items.map((item) => (
-        <div>
+        <div key={item.id}>
           <p>{item.id}</p>
           <p>{item.name}</p>
           <p>{item.price}</p>

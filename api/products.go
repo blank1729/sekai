@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 )
 
 type Item struct {
@@ -17,21 +18,73 @@ type Item struct {
 
 func ProductsHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodGet {
-		fd, err := os.Open("data/items.json")
-		if err != nil {
-			log.Fatal("unable to open the file")
+		url := strings.TrimPrefix(r.URL.Path, "/api/")
+		params := strings.Split(url, "/")
+
+		switch len(params) {
+		case 1:
+			productHandler(w, r)
+		case 2:
+			itemHandler(w, r, params[1])
+		default:
+			w.WriteHeader(http.StatusNotFound)
 		}
-		data, _ := io.ReadAll(fd)
-		var items []Item
-		err = json.Unmarshal([]byte(data), &items)
-		if err != nil {
-			fmt.Println("unable to unmarshal", err)
+	}
+}
+
+func itemHandler(w http.ResponseWriter, r *http.Request, id string) {
+	fd, err := os.Open("data/items.json")
+	if err != nil {
+		log.Fatal("unable to open the file")
+	}
+	defer fd.Close()
+	data, _ := io.ReadAll(fd)
+	var items []Item
+	err = json.Unmarshal([]byte(data), &items)
+	if err != nil {
+		fmt.Println("unable to unmarshal", err)
+	}
+	var found bool
+	var out Item
+
+	for _, item := range items {
+		if item.Id == id {
+			found = true
+			out = item
+			break
 		}
-		jsonData, err := json.MarshalIndent(items, "  ", "  ")
+	}
+
+	if found {
+		jsonData, err := json.MarshalIndent(out, "  ", "  ")
 		if err != nil {
 			fmt.Println("unable to marshal", err)
 		}
 		w.Header().Set("Content-Type", "application/json")
 		w.Write(jsonData)
+	} else {
+		w.WriteHeader(http.StatusNotFound)
+		w.Write([]byte("Item not found"))
 	}
+
+}
+
+func productHandler(w http.ResponseWriter, r *http.Request) {
+	fd, err := os.Open("data/items.json")
+	if err != nil {
+		log.Fatal("unable to open the file")
+	}
+	defer fd.Close()
+	data, _ := io.ReadAll(fd)
+	var items []Item
+	err = json.Unmarshal([]byte(data), &items)
+	if err != nil {
+		fmt.Println("unable to unmarshal", err)
+	}
+	jsonData, err := json.MarshalIndent(items, "  ", "  ")
+	if err != nil {
+		fmt.Println("unable to marshal", err)
+	}
+	w.Header().Set("Content-Type", "application/json")
+	w.Write(jsonData)
 }
