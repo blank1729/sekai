@@ -9,8 +9,7 @@ interface Item {
 const Home = () => {
   const [items, setItems] = useState<Item[]>([]);
   const [loading, setLoading] = useState(true);
-  const path = "/api/products";
-  //   const path = "http://localhost:8080/api/products";
+  const path = "https://sekaii.vercel.app/api/products";
 
   const getItems = async () => {
     const data = await fetch(path);

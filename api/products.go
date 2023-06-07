@@ -8,6 +8,9 @@ import (
 	"net/http"
 	"os"
 	"regexp"
+	utils "sekai/utils"
+
+	_ "github.com/go-sql-driver/mysql"
 )
 
 type Item struct {
@@ -17,7 +20,13 @@ type Item struct {
 }
 
 func ProductsHandler(w http.ResponseWriter, r *http.Request) {
+	utils.Cors(w, r)
 
+	// Handle preflight requests
+	if r.Method == http.MethodOptions {
+		w.WriteHeader(http.StatusOK)
+		return
+	}
 	if r.Method == http.MethodGet {
 		if r.URL.Query().Has("id") {
 			itemHandler(w, r, r.URL.Query().Get("id"))
@@ -25,6 +34,7 @@ func ProductsHandler(w http.ResponseWriter, r *http.Request) {
 			productHandler(w, r)
 		}
 	}
+
 }
 
 func itemHandler(w http.ResponseWriter, r *http.Request, id string) {

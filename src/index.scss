@@ -3,15 +3,17 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
 }
 
 .container {
-  margin: auto;
+  margin: auto 1rem;
   @media screen and (min-width: 428px) {
+    width: 95%;
     margin: auto;
   }
   @media screen and (min-width: 769px) {
-    width: 768px;
+    width: 60%;
     margin: auto;
   }
 }
