@@ -1,7 +1,7 @@
 {
   "functions": {
     "api/search.go": {
-      "includeFiles": "data/items.json"
+      "includeFiles": "**/*"
     },
     "api/products.go": {
       "includeFiles": "**/*"
