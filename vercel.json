@@ -4,7 +4,7 @@
       "includeFiles": "data/items.json"
     },
     "api/products.go": {
-      "includeFiles": ["data/items.json", "_cors.go"]
+      "includeFiles": "**/*"
     }
   }
 }
