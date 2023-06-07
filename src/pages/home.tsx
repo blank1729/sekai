@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./home.scss";
 
 interface Item {
   id: string;
@@ -29,17 +30,13 @@ const Home = () => {
     );
   }
   return (
-    <main>
+    <main className="homepage">
       <section className="container">
         <h1>Items</h1>
-        <div
-          style={{
-            display: "flex",
-            gap: "1rem",
-          }}
-        >
+        <hr />
+        <div className="items">
           {items.map((item) => (
-            <div key={item.id}>
+            <div key={item.id} className="item">
               <p>{item.id}</p>
               <p>{item.name}</p>
               <p>{item.price}</p>
