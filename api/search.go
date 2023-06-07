@@ -3,8 +3,6 @@ package handler
 import (
 	"net/http"
 	"os/exec"
-
-	"github.com/blank1729/sekai/utils"
 )
 
 func SearchHandler(w http.ResponseWriter, r *http.Request) {
@@ -14,8 +12,5 @@ func SearchHandler(w http.ResponseWriter, r *http.Request) {
 		output, _ := cmd.Output()
 		w.Write(output)
 		w.Write([]byte("something to search"))
-
-		// utils func
-		utils.Print()
 	}
 }

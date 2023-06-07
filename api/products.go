@@ -7,7 +7,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"os/exec"
 	"regexp"
 
 	"github.com/blank1729/sekai/utils"
@@ -23,21 +22,19 @@ type Item struct {
 func ProductsHandler(w http.ResponseWriter, r *http.Request) {
 	utils.Cors(w, r)
 
-	// checking if files are copied
-	cmd := exec.Command("ls", "-al")
-	output, _ := cmd.Output()
-	w.Write(output)
 	// Handle preflight requests
 	if r.Method == http.MethodOptions {
 		w.WriteHeader(http.StatusOK)
 		return
 	}
+
 	if r.Method == http.MethodGet {
 		if r.URL.Query().Has("id") {
 			itemHandler(w, r, r.URL.Query().Get("id"))
 		} else {
 			productHandler(w, r)
 		}
+		return
 	}
 
 }
