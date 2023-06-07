@@ -10,7 +10,7 @@ import (
 func MainRouter(w http.ResponseWriter, r *http.Request) {
 	router := chi.NewRouter()
 	router.Use(middleware.Logger)
-	router.Get("/", hello)
+	router.Get("/api/", hello)
 	router.ServeHTTP(w, r)
 }
 
