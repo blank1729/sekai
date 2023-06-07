@@ -1,10 +1,10 @@
-package handler
+package handlers
 
 import (
 	"fmt"
 	"net/http"
 )
 
-func LoginHandler(w http.ResponseWriter, r *http.Request) {
+func CartHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "hellor world", r.Header.Get("User-Agent"))
 }
