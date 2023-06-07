@@ -7,8 +7,8 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"os/exec"
 	"regexp"
-	utils "sekai/utils"
 
 	_ "github.com/go-sql-driver/mysql"
 )
@@ -20,8 +20,12 @@ type Item struct {
 }
 
 func ProductsHandler(w http.ResponseWriter, r *http.Request) {
-	utils.Cors(w, r)
+	Cors(w, r)
 
+	// checking if files are copied
+	cmd := exec.Command("ls", "-al")
+	output, _ := cmd.Output()
+	w.Write(output)
 	// Handle preflight requests
 	if r.Method == http.MethodOptions {
 		w.WriteHeader(http.StatusOK)
@@ -35,6 +39,10 @@ func ProductsHandler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
+}
+
+func Cors(w http.ResponseWriter, r *http.Request) {
+	panic("unimplemented")
 }
 
 func itemHandler(w http.ResponseWriter, r *http.Request, id string) {
