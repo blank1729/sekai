@@ -41,10 +41,6 @@ func ProductsHandler(w http.ResponseWriter, r *http.Request) {
 
 }
 
-func Cors(w http.ResponseWriter, r *http.Request) {
-	panic("unimplemented")
-}
-
 func itemHandler(w http.ResponseWriter, r *http.Request, id string) {
 
 	if !valid(id) {

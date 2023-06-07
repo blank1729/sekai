@@ -12,5 +12,8 @@ func SearchHandler(w http.ResponseWriter, r *http.Request) {
 		output, _ := cmd.Output()
 		w.Write(output)
 		w.Write([]byte("something to search"))
+
+		// utils func
+		Print()
 	}
 }
