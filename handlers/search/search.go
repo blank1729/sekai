@@ -1,11 +1,11 @@
-package handlers
+package search
 
 import (
 	"net/http"
 	"os/exec"
 )
 
-func SearchHandler(w http.ResponseWriter, r *http.Request) {
+func RootWithQueryHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodGet {
 		// checking if files are copied
 		cmd := exec.Command("ls", "-al")

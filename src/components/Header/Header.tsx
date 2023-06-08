@@ -5,8 +5,9 @@ const Header = () => {
   return (
     <header>
       <nav className="container">
-        <Link to={"/"}>
-          <h1>Sekai</h1>
+        <Link to={"/"} className="logo">
+          <img src="/imgs/logo.svg" alt="" />
+          <p>Don't Panic</p>
         </Link>
         <div className="links">
           <Link to={"/"}>Home</Link>

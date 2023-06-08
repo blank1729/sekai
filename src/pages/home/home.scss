@@ -1,0 +1,56 @@
+.homepage {
+  padding-top: 2rem;
+  overflow: hidden;
+  .container {
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    .items {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
+      .item {
+        border: 2px solid palevioletred;
+        border-radius: 10px;
+        padding: 0.5rem;
+        transition: scale 100ms ease-in-out;
+        &:hover {
+          scale: 1.05;
+        }
+        button {
+          background-color: tomato;
+          border: 2px solid black;
+          color: white;
+          border-radius: 5px;
+          transition: scale 100ms ease-out;
+          &:active {
+            scale: 0.95;
+          }
+        }
+      }
+    }
+  }
+  .cart {
+    scale: 0.5;
+    position: absolute;
+    overflow: hidden;
+    right: 0;
+    top: calc(20px + 1rem);
+    width: 20vw;
+    padding: 1rem;
+    transform: translateX(40vw);
+    transition: scale 200ms ease-in-out;
+    transition: transform 200ms ease-in-out;
+  }
+  .show {
+    scale: 1;
+    transform: translateX(0px);
+  }
+  .showCartButton {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: orange;
+  }
+}

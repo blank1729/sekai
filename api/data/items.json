@@ -1,52 +1,158 @@
 [
   {
-    "id": "1",
-    "name": "Ice Cream",
-    "price": "10"
+    "id": "1729",
+    "name": "Pan Galactic Gargle Blaster",
+    "price": "42",
+    "categories": ["food"]
   },
   {
-    "id": "2",
-    "name": "Pizza",
-    "price": "15"
+    "id": "1730",
+    "name": "Towel",
+    "price": "50",
+    "categories": ["essentials"]
   },
   {
-    "id": "3",
-    "name": "Burger",
-    "price": "8"
+    "id": "1731",
+    "name": "Babel Fish",
+    "price": "10",
+    "categories": ["essentials", "communication"]
   },
   {
-    "id": "4",
-    "name": "Pasta",
-    "price": "12"
+    "id": "1732",
+    "name": "Heart of Gold",
+    "price": "1,000,000",
+    "categories": ["spaceship", "technology"]
   },
   {
-    "id": "5",
-    "name": "Salad",
-    "price": "9"
+    "id": "1733",
+    "name": "Infinite Improbability Drive",
+    "price": "999,999",
+    "categories": ["technology", "spaceship"]
   },
   {
-    "id": "6",
-    "name": "Sushi",
-    "price": "20"
+    "id": "1734",
+    "name": "Hitchhiker's Guide to the Galaxy",
+    "price": "20",
+    "categories": ["books", "technology"]
   },
   {
-    "id": "7",
-    "name": "Steak",
-    "price": "25"
+    "id": "1735",
+    "name": "Pangalactic Gargle Blaster Recipe",
+    "price": "5",
+    "categories": ["books", "food", "recipes"]
   },
   {
-    "id": "8",
-    "name": "Chicken Wings",
-    "price": "10"
+    "id": "1736",
+    "name": "Beeblebroxian Pocket Lint",
+    "price": "2",
+    "categories": ["collectibles", "souvenirs"]
   },
   {
-    "id": "9",
-    "name": "Tacos",
-    "price": "7"
+    "id": "1737",
+    "name": "Vogon Poetry",
+    "price": "0",
+    "categories": ["art", "literature"]
   },
   {
-    "id": "10",
-    "name": "Cupcake",
-    "price": "5"
+    "id": "1738",
+    "name": "Bistromathic Drive",
+    "price": "500,000",
+    "categories": ["technology", "spaceship"]
+  },
+  {
+    "id": "1739",
+    "name": "Frood",
+    "price": "100",
+    "categories": ["clothing", "accessories"]
+  },
+  {
+    "id": "1740",
+    "name": "Petunias",
+    "price": "3",
+    "categories": ["plants", "gardening"]
+  },
+  {
+    "id": "1741",
+    "name": "Hooloovoo",
+    "price": "1,000,000",
+    "categories": ["technology", "entities"]
+  },
+  {
+    "id": "1742",
+    "name": "Beeblebroxian Brain",
+    "price": "10,000",
+    "categories": ["collectibles", "souvenirs", "anatomy"]
+  },
+  {
+    "id": "1743",
+    "name": "Panic Button",
+    "price": "25",
+    "categories": ["technology", "devices"]
+  },
+  {
+    "id": "1744",
+    "name": "Magrathean Planet Designer",
+    "price": "1,000,000,000",
+    "categories": ["technology", "spaceship"]
+  },
+  {
+    "id": "1745",
+    "name": "Towel Dispenser",
+    "price": "75",
+    "categories": ["essentials", "technology"]
+  },
+  {
+    "id": "1746",
+    "name": "Trillian's Necklace",
+    "price": "500",
+    "categories": ["jewelry", "accessories"]
+  },
+  {
+    "id": "1747",
+    "name": "Deep Thought Supercomputer",
+    "price": "10,000,000",
+    "categories": ["technology", "computers"]
+  },
+  {
+    "id": "1748",
+    "name": "Vogon Destructor Fleet",
+    "price": "1,000,000,000,000",
+    "categories": ["spaceship", "vehicles"]
+  },
+  {
+    "id": "1749",
+    "name": "Marvin the Paranoid Android",
+    "price": "1",
+    "categories": ["technology", "robots"]
+  },
+  {
+    "id": "1750",
+    "name": "Babel Fish Bowl",
+    "price": "20",
+    "categories": ["home", "pets"]
+  },
+  {
+    "id": "1751",
+    "name": "Magrathean Custom Planet Order",
+    "price": "10,000,000,000",
+    "categories": ["technology", "spaceship"]
+  },
+  {
+    "id": "1752",
+    "name": "Tribute to Disaster Area Album",
+    "price": "15",
+    "categories": ["music", "entertainment"]
+  },
+  {
+    "id": "1753",
+    "name": "Zaphod Beeblebrox Action Figure",
+    "price": "30",
+    "categories": ["collectibles", "toys"]
+  },
+  {
+    "id": "1754",
+    "name": "Vogon Constructor Fleet Blueprints",
+    "price": "1,000,000,000",
+    "categories": ["technology", "spaceship", "design"]
   }
 ]

@@ -1,5 +1,5 @@
 header {
-  background-color: tomato;
+  // background-color: tomato;
   width: 100vw;
   nav {
     padding-top: 15px;
@@ -7,6 +7,18 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    .logo {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      img {
+        width: 3rem;
+      }
+      p {
+        font-size: 1.6rem;
+        font-weight: 700;
+      }
+    }
     .links {
       display: flex;
       gap: 1rem;

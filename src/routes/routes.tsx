@@ -4,9 +4,9 @@ import {
   Outlet,
   Route,
 } from "react-router-dom";
-import Cart from "../pages/cart";
-import Home from "../pages/home";
-import Header from "../components/Header";
+import Cart from "../pages/cart/cart";
+import Home from "../pages/home/home";
+import Header from "../components/Header/Header";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(

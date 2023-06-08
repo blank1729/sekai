@@ -1,4 +1,4 @@
-package handlers
+package products
 
 import (
 	"encoding/json"
@@ -13,13 +13,14 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-type Item struct {
-	Id    string `json:"id"`
-	Name  string `json:"name"`
-	Price string `json:"price"`
+type Product struct {
+	Id         string   `json:"id"`
+	Name       string   `json:"name"`
+	Price      string   `json:"price"`
+	Categories []string `json:"categories"`
 }
 
-func ProductsHandler(w http.ResponseWriter, r *http.Request) {
+func RootHandler(w http.ResponseWriter, r *http.Request) {
 	utils.Cors(w, r)
 
 	// Handle preflight requests
@@ -53,13 +54,13 @@ func itemHandler(w http.ResponseWriter, r *http.Request, id string) {
 	}
 	defer fd.Close()
 	data, _ := io.ReadAll(fd)
-	var items []Item
+	var items []Product
 	err = json.Unmarshal([]byte(data), &items)
 	if err != nil {
 		fmt.Println("unable to unmarshal", err)
 	}
 	var found bool
-	var out Item
+	var out Product
 
 	for _, item := range items {
 		if item.Id == id {
@@ -78,7 +79,7 @@ func itemHandler(w http.ResponseWriter, r *http.Request, id string) {
 		w.Write(jsonData)
 	} else {
 		w.WriteHeader(http.StatusNotFound)
-		w.Write([]byte("Item not found"))
+		w.Write([]byte("Product not found"))
 	}
 
 }
@@ -90,7 +91,7 @@ func productHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	defer fd.Close()
 	data, _ := io.ReadAll(fd)
-	var items []Item
+	var items []Product
 	err = json.Unmarshal([]byte(data), &items)
 	if err != nil {
 		fmt.Println("unable to unmarshal", err)
