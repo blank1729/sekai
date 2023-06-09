@@ -12,6 +12,7 @@ const Header = () => {
         <div className="links">
           <Link to={"/"}>Home</Link>
           <Link to={"/cart"}>Cart</Link>
+          <Link to={"/mui"}>MUI</Link>
         </div>
         {/* <StyledMenu theme={"dark"}>
           <MenuItem>Item 1</MenuItem>

@@ -44,6 +44,7 @@ const Home = () => {
         <div className="items">
           {items.map((item) => (
             <div key={item.id} className="item">
+              <img src="/imgs/logo.svg" alt="" />
               <p>{item.id}</p>
               <p>{item.name}</p>
               <p>{item.price}</p>

@@ -9,5 +9,8 @@
       "GO_BUILD_FLAGS": "-ldflags '-s -w'"
     }
   },
-  "routes": [{ "src": "/api/(.*)", "dest": "/api" }]
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/api" },
+    { "src": "/(.*)", "dest": "/" }
+  ]
 }
