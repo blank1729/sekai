@@ -15,7 +15,13 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/"
+      "destination": "/index.html"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*\\.(js|css|png|jpg|jpeg|gif|ico|woff2|woff|ttf|svg))",
+      "destination": "/$1"
     }
   ]
 }
