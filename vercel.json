@@ -14,10 +14,6 @@
     {
       "source": "/:path(.*)",
       "destination": "/index.html"
-    },
-    {
-      "source": "/:path(.*\\.(js|css|png|jpg|jpeg|gif|ico|woff2|woff|ttf|svg))",
-      "destination": "/:path"
     }
   ]
 }
