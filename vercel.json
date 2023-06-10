@@ -9,11 +9,14 @@
       "GO_BUILD_FLAGS": "-ldflags '-s -w'"
     }
   },
-  "routes": [{ "src": "/api/(.*)", "dest": "/api" }],
   "rewrites": [
     {
       "source": "/:path(.*)",
       "destination": "/index.html"
+    },
+    {
+      "source": "/api/:path(.*)",
+      "destination": "/api/"
     }
   ]
 }
