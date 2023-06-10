@@ -14,12 +14,12 @@
   ],
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": ":path(.*)",
       "destination": "/index.html"
     },
     {
-      "source": "/(.*\\.(js|css|png|jpg|jpeg|gif|ico|woff2|woff|ttf|svg))",
-      "destination": "/$1"
+      "source": ":path(.*\\.(js|css|png|jpg|jpeg|gif|ico|woff2|woff|ttf|svg))",
+      "destination": "/:path"
     }
   ]
 }
