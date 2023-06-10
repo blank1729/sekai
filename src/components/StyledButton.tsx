@@ -36,14 +36,18 @@ const StyledButton = styled(Button)`
 `;
 
 const StyledInput = styled(Input)`
-  padding: 0.5rem;
-  font-size: 1.25rem;
-  border-radius: 0.5rem;
-  border: none;
-  outline: none;
-  font-size: 2rem;
-  &:focus {
-    background-color: #a0e7e5;
+  &[type="text"] {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+    &:focus {
+      background-color: #a0e7e5;
+    }
+  }
+  & $(inputClasses.input) {
+    font-size: 2rem;
   }
 `;
 
