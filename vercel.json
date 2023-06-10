@@ -11,12 +11,8 @@
   },
   "rewrites": [
     {
-      "source": "/:path(.*)",
+      "source": "/:path((?!api/)(.*))",
       "destination": "/index.html"
-    },
-    {
-      "source": "/api/(.*)",
-      "destination": "/api"
     }
   ]
 }
