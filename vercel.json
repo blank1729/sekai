@@ -15,7 +15,7 @@
       "destination": "/index.html"
     },
     {
-      "source": "/:path((api/).*)",
+      "source": "/:path(api/.*)",
       "destination": "/api"
     }
   ]
